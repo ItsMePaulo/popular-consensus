@@ -1,0 +1,89 @@
+@import "../../styles"
+
+.text
+  color: $text-color
+
+.test-container
+  @include flex(column, flex-start)
+
+.mat-list-item-content
+  padding-right: 0
+
+.profile-photo
+  width: 100%
+  min-height: 30%
+  max-height: 35%
+  background-color: #efefef
+  position: relative
+  .image-block
+    padding: 10px
+  .user-profile-badge
+    position: absolute
+    top: 2px
+    right: 2px
+    color: $text-color
+    z-index: 99
+    &:hover
+      font-size: 110%
+
+mat-list-option
+  border-bottom: 0.5px solid #cacaca
+  margin-top: 1px
+  background-color: #fafafa
+
+mat-nav-list, mat-selection-list
+  padding-top: 0
+
+.links
+  flex: 15
+
+.custom-channel-list
+  font-size: $text-size-medium
+
+mat-list-option
+  padding-left: 20px
+
+#add-button
+  color: $secondary-color
+  text-align: right
+  padding-left: 5px
+
+#add-channels
+  padding: 5px
+  background-color: #eee
+  text-align: center
+
+  &:hover
+    cursor: pointer
+
+.search-channel-box
+  position: absolute
+  top: 40%
+  width: 100%
+  min-height: 100px
+  background-color: white
+
+.user-badge-link:hover
+  cursor: pointer
+
+// for tablets portrait
+@media only screen and (min-width: 500px) and (max-width: 770px) and (orientation: portrait)
+  .profile-photo
+    min-height: 20%
+
+// for tablets landscape
+@media only screen and (max-height: 770px) and (max-width: 1024px) and (orientation: landscape)
+  .profile-photo
+    min-height: 20%
+
+// for phones landscape
+@media only screen and (max-height: 360px) and (max-width: 640px) and (orientation: landscape)
+  .profile-photo
+    max-height: 55%
+    min-height: 40%
+
+// for mobile phones
+@media only screen and (max-width: 500px)
+  .profile-photo
+    max-height: 55%
+    min-height: 40%

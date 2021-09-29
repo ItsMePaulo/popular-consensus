@@ -1,0 +1,330 @@
+/* You can add global styles to this file, and also import other style files */
+$primary-color: #31CB9F
+$secondary-color: #67E0BD
+$secondary-color-hover: #67E0BD40
+$warning-color: #f44336
+$blue-team-color: #BBD1FF
+$red-team-color: #FCAAAA
+
+$hover-color: #f9f9f9
+
+$card-width: 97%
+
+@mixin transform($property)
+  -webkit-transform: $property
+  -ms-transform: $property
+  transform: $property
+
+@mixin flex($flex-flow, $justify-content)
+  display: flex
+  flex-flow: $flex-flow
+  justify-content: $justify-content
+  padding: 0
+  margin: 0
+  list-style: none
+
+body
+  font-family: Roboto, Arial, sans-serif
+  margin: 0
+  background-color: #F3F3F3
+
+.full-container
+  width: 100%
+  height: 100%
+
+.half-container
+  width: 50%
+  height: 50%
+
+
+@mixin voting-bar($color)
+  border: 1px solid $color
+  width: 85%
+  height: 15px
+
+
+//################################### Positioning  ####################################################
+.top-chat
+  margin-bottom: 10px
+
+.top-card
+  margin: 15px auto
+  max-width: $card-width
+
+//used to auto fill space
+.default-container
+  flex: auto
+
+.debate-container
+  margin: 2px auto 15px
+  max-width: $card-width
+  height: 260px
+
+.flex-space-between
+  @include flex(row, space-between)
+  align-items: center
+
+.flex-column-center
+  @include flex(column, flex-start)
+  align-items: center
+
+.flex-column-left
+  @include flex(column, flex-start)
+  align-items: flex-start
+  justify-content: flex-end
+
+.flex-column-right
+  @include flex(column, flex-start)
+  align-items: flex-end
+
+.flex-center
+  @include flex(row, center)
+  align-items: center
+
+.flex-center-left
+  @include flex(row, flex-start)
+  align-items: center
+
+.flex-center-right
+  @include flex(row, flex-end)
+  align-items: center
+
+.flex-bottom-center
+  @include flex(row, center)
+  align-items: flex-end
+
+.flex-bottom-left
+  @include flex(row, flex-start)
+  align-items: flex-end
+
+.flex-bottom-right
+  @include flex(row, flex-end)
+  align-items: flex-end
+
+.flex-top-left
+  @include flex(row, flex-start)
+  align-items: flex-start
+
+.flex-top-center
+  @include flex(row, center)
+  align-items: flex-start
+
+.flex-top-right
+  @include flex(row, flex-end)
+  align-items: flex-start
+
+.left-icon
+  padding-right: 10px
+
+.right-icon
+  padding-left: 10px
+
+//################################### Fonts Text and Icons ############################################
+
+$text-size-regular: 1.35em
+$text-size-medium: 1.2em
+$text-size-large: 1.55em
+$text-size-gigantic: 2.7em
+$text-size-gigantic2: 3.6em
+$text-size-small: 1.07em
+$text-size-tiny: 0.8em
+$text-color: #6C757D
+
+.loading-text
+  text-align: center
+
+@font-face
+  font-family: centuary-gothic
+  src: url("src/assets/fonts/century-gothic/century-gothic.ttf") format("opentype")
+
+@mixin plain-text($font-size, $font-color)
+  font-family: centuary-gothic, sans-serif
+  font-size: $font-size
+  color: $font-color
+
+@mixin header-text($font-size, $font-color)
+  font-family: "URW Bookman", serif
+  font-size: $font-size
+  color: $font-color
+
+@mixin fav-icon($font-size)
+  font-size: $font-size
+  color: $text-color
+
+.button-text
+  @include plain-text($text-size-large, white)
+
+.header-text-regular
+  @include header-text($text-size-regular, $text-color)
+
+.header-text-accent
+  color: darken($primary-color, 5%)
+
+.header-text-cards
+  @include header-text($text-size-large, $text-color)
+
+.header-text-x
+  @include header-text($text-size-gigantic, $text-color)
+
+.plain-text
+  @include plain-text($text-size-regular, $text-color)
+
+.plain-text-blue
+  @include plain-text($text-size-regular, darken($blue-team-color, 10%))
+
+.plain-text-blue-light
+  @include plain-text($text-size-regular, darken($blue-team-color, 5%))
+
+.plain-text-red
+  @include plain-text($text-size-regular, darken($red-team-color, 10%))
+
+.plain-text-red-light
+  @include plain-text($text-size-regular, darken($red-team-color, 5%))
+
+.plain-text-xx
+  @include plain-text($text-size-gigantic, $text-color)
+
+.plain-text-xxx
+  @include plain-text($text-size-gigantic2, $text-color)
+
+.plain-text-x
+  @include plain-text($text-size-large, $text-color)
+
+.plain-text-s
+  @include plain-text($text-size-small, $text-color)
+
+.plain-text-ss
+  @include plain-text($text-size-tiny, $text-color)
+
+.plain-text-accent
+  @include plain-text($text-size-regular, $primary-color)
+
+.plain-text-s-accent
+  @include plain-text($text-size-small, darken($primary-color, 5%))
+
+.plain-text-white
+  @include plain-text($text-size-regular, white)
+
+.plain-text-s-white
+  @include plain-text($text-size-small, white)
+
+.fav-icons
+  @include fav-icon($text-size-regular)
+
+.fav-icons-x
+  @include fav-icon($text-size-large)
+
+.fav-icons-s
+  @include fav-icon($text-size-small)
+
+textarea
+  resize: none
+  @include plain-text($text-size-medium, $text-color)
+
+input
+  @include plain-text($text-size-medium, darken($text-color, 30%))
+
+.center-text
+  text-align: center
+  width: 100%
+
+.spinner
+  text-align: center
+
+//########################################################################################
+.submit-container
+  .mat-button
+    width: 15% !important
+    font-family: centuary-gothic, sans-serif !important
+    font-size: $text-size-regular !important
+    margin: 10px 10px
+
+    &:hover
+      left: 2px
+
+  .success:hover
+    background: lighten($primary-color, 20%)
+
+  .cancel:hover
+    background: lighten($warning-color, 20%)
+
+input:focus, button:focus,
+input:focus, select:focus,
+a:focus
+  outline: none !important
+
+input, select
+  @include plain-text($text-size-medium, darken($text-color, 10%))
+
+button:disabled, button[disabled]
+  border: 1px solid #999999
+  background-color: lighten($secondary-color, 20%) !important
+
+//#########################################################################################
+
+.simple-debate-card-structure
+  .debate-card-header
+    flex: 1
+    .debate-card-top-left-corner
+      flex: 1
+    .debate-card-top-center
+      text-align: center
+      flex: 4
+    .debate-card-top-right-corner
+      text-align: right
+      flex: 1
+  .debate-card-content
+    flex: 4
+    .debate-content-container
+      flex: 7
+      .debate-sub-header
+        flex: 3
+      .debate-content
+        flex: 5
+    .debate-card-votes-block
+      flex: 1
+  .debate-card-footer
+    flex: 1
+    .debate-card-bottom-left-corner
+      flex: 4
+    .debate-card-center
+      flex: 1
+      text-align: center
+    .debate-card-bottom-right-corner
+      flex: 4
+      text-align: right
+
+
+
+.percentage
+  margin-top: 20px
+.number-of-votes
+  text-align: center
+  margin-top: 20px
+
+.blue-bar
+  @include voting-bar($blue-team-color)
+
+.red-bar
+  @include voting-bar($red-team-color)
+
+.full-width-card
+  width: 100%
+  margin-bottom: 15px
+
+\:root
+  --amplify-font-family: centuary-gothic, sans-serif
+  --amplify-primary-color: #31CB9F
+  --amplify-primary-tint: #67E0BD
+  --amplify-primary-shade: #67E0BD
+  --amplify-secondary-tint: #f44336
+
+//####################################Invalid forms###############################################
+.has-danger
+  border-color: #F8D7BE
+  border-width: medium
+
+.has-success
+  border-color: $secondary-color
+
+//##################################Queries#######################################################

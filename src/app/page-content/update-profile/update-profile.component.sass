@@ -1,0 +1,120 @@
+@import "src/styles"
+
+.create-channel-card
+  min-height: 290px
+  padding: 10px
+
+.profile-image
+  border-radius: 50%
+  max-width: 250px
+  min-height: 250px
+  margin: 10px auto
+  border: 12px double $secondary-color
+  background-color: #efefef
+  padding: 5px
+
+img
+  border-radius: 50%
+
+.fake-button
+  text-align: center
+  padding: 0 5px 5px
+  margin-bottom: 40px
+
+.greeting
+  text-align: center
+
+label
+  text-align: right
+
+.drop-image
+  text-align: center
+
+.col-md-8
+  padding: 4px
+
+.col-md-12
+  margin-top: 20px
+  text-align: center
+
+  textarea
+    text-align: left
+
+input[type="file"]
+  display: none
+
+.custom-file-upload
+  text-align: center
+  padding: 10px 0
+  &:hover
+    cursor: pointer
+    font-size: 110%
+
+.btn-block
+  span
+    position: relative
+    margin-right: 20%
+
+button
+  min-height: 36px
+
+// for tablets portrait
+@media only screen and (max-height: 1024px) and (max-width: 770px) and (orientation: portrait)
+  label
+    text-align: left
+  .btn-light
+    span
+      margin: auto
+      font-size: 1.3em
+  .submit-container
+    margin-top: 60px
+    .mat-button
+      margin-left: -2px
+      width: 40% !important
+      font-size: 1.2em !important
+
+// for tablets landscape
+@media only screen and (max-height: 770px) and (max-width: 1024px) and (orientation: landscape)
+  .btn-light
+    span
+      font-size: 1.2em
+  .submit-container
+    margin-top: 30px
+    .mat-button
+      margin-left: -2px
+      width: 40% !important
+      font-size: 1.2em !important
+
+// for mobile phones portrait
+@media only screen and (max-width: 500px) and (max-height: 770px) and (orientation: portrait)
+  label
+    text-align: left
+  .btn-light
+    span
+      margin: auto
+      font-size: 1em
+  .submit-container
+    margin-top: 60px
+    display: block
+    .mat-button
+      margin-left: -2px
+      display: block
+      width: 100% !important
+      font-size: 1em !important
+
+// for mobile phones landscape
+@media only screen and (max-width: 770px) and (max-height: 500px) and (orientation: landscape)
+  label
+    text-align: left
+  .btn-light
+    span
+      margin: auto
+      font-size: 1em
+  .submit-container
+    margin-top: 60px
+    display: block
+    .mat-button
+      margin-left: -2px
+      display: block
+      width: 100% !important
+      font-size: 1em !important

@@ -1,0 +1,9 @@
+<mat-card class="full-width-card header-text-x">
+  <div class="my-debates-header">
+    My Ongoing Debates
+  </div>
+</mat-card>
+
+<div *ngFor="let debate of userDebates">
+  <app-debate-card [debate]="debate"></app-debate-card>
+</div>

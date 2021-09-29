@@ -1,0 +1,68 @@
+@import "../../styles"
+
+.second-nav-container
+  padding: 10px 10px 10px 2px
+
+  .menu-button
+    flex: 1
+
+  .current-position
+    flex: 1
+    text-align: center
+    padding-top: 5px
+
+  .search-block
+    flex: 1
+    text-align: right
+
+.current-position
+  flex: 5
+  @include flex(row, center)
+  align-items: flex-end
+  text-align: center
+  vertical-align: middle
+
+a
+  @include plain-text($text-size-medium, white)
+
+.input-group
+  border-radius: 10px
+  margin-top: 5px
+  margin-left: 20px
+  width: 60%
+
+button
+  color: white
+
+.input-group-append
+  font-family: centuary-gothic, sans-serif
+
+  button
+    border: 1px solid white
+
+    &:hover
+      background-color: $primary-color
+
+// for tablets
+@media only screen and (min-width: 500px) and (max-width: 770px) and (orientation: portrait)
+  .current-position
+    display: none
+  .search-block
+    .input-group
+      width: 100%
+
+// for phones
+@media only screen and (max-height: 360px) and (max-width: 640px) and (orientation: landscape)
+  .current-position
+    display: none
+  .search-block
+    .input-group
+      width: 100%
+
+// for phones portrait
+@media only screen and (max-height: 700px) and (max-width: 380px) and (orientation: portrait)
+  .menu-button, .current-position
+    display: none
+  .search-block
+    .input-group
+      width: 100%

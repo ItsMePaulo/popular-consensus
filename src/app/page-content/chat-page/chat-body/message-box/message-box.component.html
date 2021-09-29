@@ -1,0 +1,8 @@
+<div *ngIf="messages ; else loadingMessages">
+  <div *ngFor="let message of messages">
+    <app-message [message]="message" [teamNumber]="teamNumber"></app-message>
+  </div>
+</div>
+<ng-template #loadingMessages>
+  <app-spinner [text]="'Loading Messages'"></app-spinner>
+</ng-template>

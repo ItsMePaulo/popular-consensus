@@ -1,0 +1,100 @@
+<mat-card class="top-card">
+  <div class="create-channel-card">
+    <section class="flex-center">
+      <div class="full-container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="header-text-x greeting">{{welcomeMessage | titlecase}}</h1>
+          </div>
+        </div>
+        <div *ngIf="initializedForm">
+          <form [formGroup]="updateUserForm" (ngSubmit)="updateUserInfo()">
+            <div class="user-image row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+                <div class="profile-image flex-center">
+                  <div *ngIf="imageUrl; else loadingImage" class="full-container">
+                    <img [src]="this.imageUrl" width="100%" height="100%" alt="profile-pic">
+                  </div>
+                  <ng-template #loadingImage>
+                  <span>
+                    <mat-spinner diameter="40">
+                    </mat-spinner>
+                  </span>
+                  </ng-template>
+                </div>
+              </div>
+              <div class="col-md-2"></div>
+            </div>
+            <div class="row fake-button">
+              <div class="col-md-12">
+                <div class="plain-text">
+                  <label for="file-upload" class="custom-file-upload">
+                    <span>Upload Profile Pic</span>
+                  </label>
+                  <input id="file-upload" type="file" (change)="onFileSelected($event)"
+                         class="btn btn-outline-secondary" accept="image/*"/>
+
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="user-username" class="col-form-label plain-text-x col-lg-3 col-xl-2">
+                Username<span class="plain-text-s-accent">*</span>:
+              </label>
+              <div class="col-lg-9 col-xl-10">
+                <input type="text" class="form-control plain-text" id="user-username" formControlName="username"
+                       placeholder="Please enter a valid username" [ngClass]="{
+                 'has-danger': username.invalid && (username.dirty || username.touched),
+                 'has-success': username.valid && (username.dirty || username.touched)
+                 }">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="user-email" class="col-form-label plain-text-x col-lg-3 col-xl-2">
+                Email<span class="plain-text-s-accent">*</span>:
+              </label>
+              <div class="col-lg-9 col-xl-10">
+                <input type="email" class="form-control" id="user-email" placeholder="Please enter a valid email"
+                       formControlName="email" [ngClass]="{
+                 'has-danger': email.invalid && (email.dirty || email.touched),
+                 'has-success': email.valid && (email.dirty || email.touched)
+                 }">
+              </div>
+            </div>
+            <div class="row">
+              <label for="user-password" class="col-form-label plain-text-x col-lg-3 col-xl-2">
+                Password:
+              </label>
+              <div class="col-lg-9 col-xl-10">
+                <button class="btn btn-light btn-lg btn-block" (click)="open(content)"><span class="plain-text">Change Password</span>
+                </button>
+              </div>
+            </div>
+            <section>
+              <div class="submit-container flex-center button-text">
+                <button [disabled]="updatingUser" type="button" mat-raised-button class="mat-button cancel" color="warn">Cancel</button>
+                <button type="submit" [disabled]="!updateUserForm.valid || updatingUser" mat-raised-button class="mat-button success"
+                        color="primary">
+                  <div *ngIf="!updatingUser; else spinner">
+                    Update
+                  </div>
+                  <ng-template #spinner>
+                    <div class="flex-center">
+                      <mat-spinner diameter="20"></mat-spinner>
+                    </div>
+                  </ng-template>
+                </button>
+              </div>
+            </section>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+</mat-card>
+
+
+<ng-template #content let-modal>
+  <app-change-password [modal]="modal"></app-change-password>
+</ng-template>

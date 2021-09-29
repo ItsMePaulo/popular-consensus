@@ -1,0 +1,19 @@
+<div id="create-container" class="top-card" routerLink="/create-debate">
+  <mat-card class="create-card">
+    <mat-card-content>
+      <span class="plain-text-x">Create Debate</span>
+      <fa-icon [icon]="faPlusCircle" class="fav-icons right-icon"></fa-icon>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div *ngIf="debates; else spinner">
+  <div *ngFor="let debate of debates">
+    <app-debate-card [debate]="debate"></app-debate-card>
+  </div>
+</div>
+<ng-template #spinner>
+  <app-spinner [text]="'Fetching Debates...'"></app-spinner>
+</ng-template>
+
+

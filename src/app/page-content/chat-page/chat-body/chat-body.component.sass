@@ -1,0 +1,170 @@
+@import "../../../../styles"
+
+mat-card
+  padding: 10px 0
+
+::ng-deep .mat-tab-label
+  width: 36.5%
+  @include header-text($text-size-large, $text-color)
+
+::ng-deep .mat-tab-body-content
+  margin-top: 10px
+
+.join-container
+  position: absolute
+  top: 243px
+  left: 0
+  width: 100%
+  height: 58px
+
+  .right, .left
+    button
+      padding: 0
+
+    .heading-block
+      height: 100%
+      width: 27%
+
+.heading-block
+  z-index: 9999
+
+.isNotMemberBlue
+  background-color: darken($blue-team-color, 5%)
+
+  &:hover
+    background-color: lighten($blue-team-color, 5%)
+
+.isFirstTeam
+  background-color: darken($blue-team-color, 5%)
+  border: 2px solid lighten($blue-team-color, 5%)
+  color: white
+  border-left: none
+
+  &:hover
+    background-color: lighten($blue-team-color, 5%)
+    color: white
+
+.isNotMemberRed
+  background-color: darken($red-team-color, 5%)
+
+  &:hover
+    background-color: lighten($red-team-color, 5%)
+
+.isSecondTeam
+  background-color: darken($red-team-color, 5%)
+  border: 2px solid white
+  color: white
+  border-right: none
+
+  &:hover
+    background-color: lighten($red-team-color, 5%)
+
+.isNotMemberBlue, .isNotMemberRed
+  color: white
+
+  &:hover
+    color: lighten($text-color, 5%)
+
+.blue-text
+  color: $blue-team-color
+
+.red-text
+  color: $red-team-color
+
+.message-body
+  min-height: 70vh
+  padding-bottom: 115px
+
+button:disabled
+  background: #F3f3f3 !important
+  color: $text-color
+
+.switchBlue
+  border: 2px solid $blue-team-color
+  color: darken($blue-team-color, 10%)
+
+  &:hover
+    background-color: lighten($blue-team-color, 5%)
+    color: white
+
+.switchRed
+  border: 2px solid $red-team-color
+  color: darken($red-team-color, 10%)
+
+  &:hover
+    background-color: lighten($red-team-color, 5%)
+    color: white
+
+
+.switchBlue, .switchRed
+  background-color: white
+  &:hover
+    cursor: pointer
+    border: 1px solid white
+
+.modal-header
+  h3
+    text-align: center
+    padding: 20px
+    font-size: $text-size-large
+
+.modal-body
+  span
+    text-align: center
+    padding: 20px
+
+.modal-footer
+  button
+    min-width: 120px
+    margin: 10px
+
+    &:hover
+      left: 1px
+
+.mobile-join-container
+  display: none
+  margin-bottom: 10px
+  padding: 10px
+  button
+    min-height: 50px
+
+
+// for tablets portrait
+@media only screen and (max-height: 1024px) and (max-width: 770px) and (orientation: portrait)
+  .mobile-join-container
+    display: flex
+  .join-container
+    display: none
+  ::ng-deep .mat-tab-label
+    width: 50%
+    font-size: 1.2em
+    overflow: scroll
+
+// for tablets landscape
+@media only screen and (max-height: 770px) and (max-width: 1024px) and (orientation: landscape)
+  .droppable
+    display: none
+  ::ng-deep .mat-tab-label
+    width: 50%
+    font-size: 1.2em
+  .heading-block
+    width: 20% !important
+
+// for mobile phones portrait
+@media only screen and (max-width: 500px) and (max-height: 700px) and (orientation: portrait)
+  button
+    margin: 2px 0
+  .mobile-join-container
+    margin-bottom: 5px
+
+// for mobile phones landscape
+@media only screen and (max-width: 700px) and (max-height: 500px) and (orientation: landscape)
+  .mobile-join-container
+    display: flex
+  .join-container
+    display: none
+  .heading-block
+    width: 100% !important
+  .my-team, .opposing-team
+    .droppable
+      display: inline-table

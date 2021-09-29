@@ -1,0 +1,49 @@
+@import "../../../styles"
+
+.form-group
+  margin-top: 20px
+
+  label
+    padding-right: 30px
+
+  .col-md- *
+    padding-left: 0
+
+select
+  width: 70%
+
+#description-label
+  padding-bottom: 2px
+
+#topic-description-help-block
+  margin-top: 0
+
+#create-debate-card
+  min-height: 510px
+  padding-bottom: 10px
+
+.middle-labels
+  text-align: right
+
+.form-group
+  padding: 5px 0
+
+mat-radio-button
+  span
+    padding-right: 15px
+    margin: 0 10px
+
+option
+  padding: 3px
+
+.placeholder-text-h
+  @include header-text($text-size-large, lighten($text-color, 10%))
+
+.placeholder-text
+  @include plain-text($text-size-small, lighten($text-color, 30%))
+
+.placeholder-text-hp
+  @include header-text($text-size-regular, lighten($text-color, 30%))
+
+.placeholder-text-plain
+  @include plain-text($text-size-regular, lighten($text-color, 30%))
